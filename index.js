@@ -41,6 +41,7 @@ function searchForGame(){
         console.log(data.results)
         gameResults = data.results.slice()
         console.log(gameResults)
+        // create 
     })
     .catch(err => console.log(`Error: ${err}`))
 }

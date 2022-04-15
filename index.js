@@ -41,7 +41,17 @@ function searchForGame(){
         console.log(data.results)
         gameResults = data.results.slice()
         console.log(gameResults)
-        // create 
+        // create html elements to show for each game result
+        gameResults.map((x,i) => {
+            const li = document.createElement('li')
+            li.classList.add(`game-result-${i}`)
+            
+            const img = document.createElement('img')
+            img.src = data.results[i].background_image
+
+            li.appendChild(img)
+            document.querySelector('.game-lookup-list').appendChild(li)
+        })
     })
     .catch(err => console.log(`Error: ${err}`))
 }

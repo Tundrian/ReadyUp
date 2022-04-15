@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+button{
+    border: none;
+    background-color: rgb(57, 57, 140);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin: 20px;
+}
+
+input{
+    background-color: rgb(57, 24, 24);
+    border: none;
+    font-size: 1.4rem;
+    color: black;
+}

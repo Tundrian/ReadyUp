@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+body {
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav {
+  height: 100vh;
+  width: fit-content;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  background-color: rgba(107, 121, 151, 0.993);
+  color: #e7f2fc;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.nav .nav-header h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ecfc13;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -5,25 +5,143 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <!-- Sidebar Navigation -->
+    <section class="nav">
+        <section class="nav-header">
+            <h2>Ready Up</h2>
+            <p>Personal Game Library</p>
+        </section>
+        <section class="nav-items">
+            <ul>
+                <li>Search</li>
+                <li>My Library</li>
+            </ul>
+        </section>
+    </section>
 
-    <h1>Game Library</h1>
+    <!-- Header Area -->
+    <main>
+        <h1>Ready Up</h1>
+        <p>A place to see your personal game library</p>
+        <ul>
+            <li><button>Search</button></li>
+            <li><button>My Library</button></li>
+        </ul>
+    </main>
+   
+    <!-- Game Lookup Section -->
+    <section class="search">
+        <h2>Find a game</h2>
+        <select name="consoles" id="search-consoles">
+            <option value="XboxSeriesX">Xbox Series X</option>
+            <option value="Playstation5">Playstation 5</option>
+        </select>
+        <input class="game-lookup-input" type="text" placeholder="Search for a game">
+        <button class="game-lookup-button">Search</button>
+    </section>
 
-    <h2>Search for a game</h2>
-    <input class="game-lookup-input" type="text" placeholder="Search for a game">
-    <button class="game-lookup-button">Search</button>
-    <div class="game-lookup-result">
-        <ul class="game-lookup-list"></ul>
-    </div>
+    <!-- Game Results Section -->
+    <section class="search-results">
+        <ul class="game-lookup-list">
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+        </ul>
+    </section>
 
-    <h2>Show my Game Library</h2>
-    <button class="game-library-button">Show library</button>
-    <ul class="game-library-results"></ul>
 
-
+    <!-- My Game Library -->
+    <section class="library">
+        <h2>Show my Game Library</h2>
+        <button class="game-library-button">Show library</button>
+        <ul class="game-library-results">
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+            <li>
+                <h3>Game Title</h3>
+                <p>Game Description</p>
+                <p>Console: </p>
+                <img src="assets/img/Halo_Infinite.png" alt="">
+                <h4>Multiplayer Info</h4>
+                <button>Add To Library</button>
+            </li>
+        </ul>
+    </section>
     
+
+    <!-- Full Game Details -->
+
+    <!-- Footer -->
     <script src="index.js"></script>
 </body>
 </html>

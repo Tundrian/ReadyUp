@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Library</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -25,7 +26,7 @@
 
     <!-- Nav Icon -->
     <section class="nav-icon">
-        <i>Icon []</i>
+        <i class="fa-solid fa-bars"></i>
     </section>
 
     <!-- Header Area -->
@@ -33,7 +34,7 @@
         <h1>Ready Up</h1>
         <p>A place to see your personal game library</p>
         <ul>
-            <li><a href="#">Search</a></li>
+            <li><a href="#" class="activeLink">Search</a></li>
             <li><a href="#">My Library</a></li>
         </ul>
     </main>
@@ -41,24 +42,29 @@
     <!-- Game Lookup Section -->
     <section class="search">
         <h2>Find a game</h2>
-        <select name="consoles" id="search-consoles">
-            <option value="XboxSeriesX">Xbox Series X</option>
-            <option value="Playstation5">Playstation 5</option>
-        </select>
-        <input class="game-lookup-input" type="text" placeholder="Search for a game">
-        <button class="game-lookup-button">Search</button>
+        <!-- <label class="search-label" for="search-consoles">Console</label> -->
+        <div class="search-form">
+            <select required name="consoles" id="search-consoles">
+                <option value="" disabled hidden selected>Console</option>
+                <option value="XboxSeriesX">Xbox Series X</option>
+                <option value="Playstation5">Playstation 5</option>
+            </select>
+            <input class="game-lookup-input" type="text" placeholder="Search for a game">
+        </div>
+        
+        <button class="game-lookup-button btn">Search</button>
     </section>
 
     <!-- Game Results Section -->
     <section class="search-results">
         <ul class="game-lookup-list">
             <li>
-                <h3>Game Title</h3>
-                <p>Game Description</p>
-                <p>Console: </p>
+                <h3>{Game Title}</h3>
+                <p>{Game Description}</p>
+                <p>Console: <span class="console"></span></p>
                 <img src="assets/img/Halo_Infinite.png" alt="">
                 <h4>Multiplayer Info</h4>
-                <button>Add To Library</button>
+                <button class="btn addGame">Add To Library</button>
             </li>
             <li>
                 <h3>Game Title</h3>
@@ -100,7 +106,8 @@
     <section class="library">
         <h2>Show my Game Library</h2>
         <button class="game-library-button">Show library</button>
-        <ul class="game-library-results">
+        <p class="myLibrary"></p>
+        <!-- <ul class="game-library-results">
             <li>
                 <h3>Game Title</h3>
                 <p>Game Description</p>
@@ -141,9 +148,8 @@
                 <h4>Multiplayer Info</h4>
                 <button>Add To Library</button>
             </li>
-        </ul>
-    </section>
-    
+        </ul> -->
+    </section> 
 
     <!-- Full Game Details -->
 

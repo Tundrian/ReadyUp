@@ -84,6 +84,8 @@
 .nav-icon {
     position: fixed;
     align-self: flex-start;
+    left: 2rem;
+    top: 2rem;
     i {
         font-size: 2rem;
 
@@ -148,7 +150,8 @@ main{
                 font-weight: 600;
                 border-radius: 5px;
 
-                &:hover{
+                &:hover,
+                &:active{
                     background-color:rgb(231, 242, 252);
                     transform: scale(1.1);
                 }
@@ -160,15 +163,6 @@ main{
 }
 
 // Game Lookup Section
-// <section class="search">
-//     <h2>Find a game</h2>
-//     <select name="consoles" id="search-consoles">
-//         <option value="XboxSeriesX">Xbox Series X</option>
-//         <option value="Playstation5">Playstation 5</option>
-//     </select>
-//     <input class="game-lookup-input" type="text" placeholder="Search for a game">
-//     <button class="game-lookup-button">Search</button>
-// </section>
 .search{
     display: flex;
     flex-flow: row wrap;
@@ -181,16 +175,61 @@ main{
         text-align: center;
         font-size: 3rem;
         margin-bottom: 2rem;
+        
     }
 
-    #search-consoles{
-        background: none;
-        border: none;
-        font-size: 1.5rem;
+    .search-label{
+        text-transform: uppercase;
+        font-weight: 600;
+        width: 100%;
+        margin-inline: 2rem auto;
     }
+    .search-form{
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: row wrap;
+        margin-bottom: 2rem;
+        width: 90%;
+        #search-consoles{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            padding-inline: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            
+            width: 25%;
+            &>option{
+    
+            }
+        }
+        .game-lookup-input{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            border: none;
+            border-bottom: solid thin gray;
+            margin-left: 1rem;
+            width: 68%;
+            padding-left: 1rem;
+        }
+    }
+
+    .game-lookup-button {
+        width: 80%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
 }
 
-// Utility class
+// Utility classS
 .hidden {
     display: none;
 }
@@ -217,4 +256,24 @@ main{
         cursor: pointer;
         color:rgb(16, 1, 180);
     }
+}
+
+.search-results{
+    .game-lookup-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        li{
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.activeLink {
+    text-decoration: underline blue;
 }

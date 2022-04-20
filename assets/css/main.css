@@ -24,20 +24,85 @@ a {
 .nav {
   height: 100vh;
   width: fit-content;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 1rem;
   background-color: rgba(107, 121, 151, 0.993);
   color: #e7f2fc;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
+  position: fixed;
+  align-self: flex-start;
+}
+.nav .nav-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: solid thin black;
 }
 .nav .nav-header h2 {
   font-size: 2rem;
   font-weight: 300;
   color: #ecfc13;
+}
+.nav .nav-items {
+  width: 100%;
+}
+.nav .nav-items li {
+  width: 100%;
+  font-size: 2rem;
+  border-bottom: solid thin black;
+}
+.nav .nav-items li a {
+  width: 100%;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  display: inline-block;
+  text-indent: 1rem;
+  color: white;
+}
+.nav .nav-items li a:hover {
+  background-color: rgba(137, 148, 172, 0.993);
+  cursor: pointer;
+  color: #2d20b1;
+  margin-left: 0;
+}
+.nav .nav-close {
+  align-self: flex-end;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  font-size: 3rem;
+  transition: all 0.2s ease-in-out;
+}
+.nav .nav-close:hover {
+  cursor: pointer;
+  color: #710808;
+  transform: scale(1.5);
+}
+
+.nav-icon {
+  position: fixed;
+  align-self: flex-start;
+}
+.nav-icon i {
+  font-size: 2rem;
+}
+.nav-icon i:hover {
+  color: green;
+  transform: scale(1.5);
+  cursor: pointer;
+  position: fixed;
+}
+
+body {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

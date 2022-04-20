@@ -39,3 +39,11 @@ function searchForGame(){
     })
     .catch(err => console.log(`Error: ${err}`))
 }
+
+// Navigation Drawer
+document.querySelector('.nav-close').addEventListener('click', navClose)
+document.querySelector('.nav-icon').addEventListener('click', navClose)
+function navClose() {
+    document.querySelector('.nav').classList.toggle('hidden')
+    document.querySelector('.nav-icon').classList.toggle('hidden')
+}

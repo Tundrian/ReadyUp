@@ -105,6 +105,8 @@ body{
     flex-flow: column wrap;
     align-items: center;
     justify-content: flex-start;
+    background-color:rgba(10, 10, 10, 0.904);
+    color: white;
 }
 
 // Main Section
@@ -129,13 +131,13 @@ main{
         justify-content: space-around;
         align-items: center;
         flex-flow: row wrap;
-
+        width: 100%;
         margin-top: 5rem;
 
         li{
-            width: 49%;
+            width: 40%;
             &:first-of-type{
-                border-right: solid thin black;
+                border-right: solid thin rgb(212, 212, 212);
                 
             }
 
@@ -146,13 +148,14 @@ main{
                 padding-bottom: 2rem;
                 font-size: 2rem;
                 text-transform: uppercase;
-                color: green;
-                font-weight: 600;
+                color: rgb(248, 248, 248);
+                font-weight: 200;
                 border-radius: 5px;
+                letter-spacing: 2px;
 
                 &:hover,
                 &:active{
-                    background-color:rgb(231, 242, 252);
+                    background-color:rgb(61, 62, 63);
                     transform: scale(1.1);
                 }
             }
@@ -192,9 +195,10 @@ main{
         flex-flow: row wrap;
         margin-bottom: 2rem;
         width: 90%;
+
         #search-consoles{
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            background: none;
+            background-color: white;
             border: none;
             font-size: 1.2rem;
             font-weight: 400;
@@ -219,6 +223,7 @@ main{
             margin-left: 1rem;
             width: 68%;
             padding-left: 1rem;
+            border-radius: 5px;
         }
     }
 
@@ -275,5 +280,35 @@ main{
 }
 
 .activeLink {
-    text-decoration: underline blue;
+    text-decoration: underline rgb(104, 233, 88);
+}
+
+// Game Results
+.game-lookup-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    
+    li{
+        width: 20%;
+        margin-inline: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        background-color: rgba(82, 82, 82, 0.918);
+        padding-inline: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
+
+        h3{
+            font-weight: 100;
+            font-size: 2.1rem;
+        }
+        img{
+            aspect-ratio: 2/1;
+            width: 100%;
+            
+        }
+    }
 }

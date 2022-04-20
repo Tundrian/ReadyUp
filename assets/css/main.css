@@ -102,6 +102,8 @@ body {
   flex-flow: column wrap;
   align-items: center;
   justify-content: flex-start;
+  background-color: rgba(10, 10, 10, 0.904);
+  color: white;
 }
 
 main {
@@ -124,13 +126,14 @@ main ul {
   justify-content: space-around;
   align-items: center;
   flex-flow: row wrap;
+  width: 100%;
   margin-top: 5rem;
 }
 main ul li {
-  width: 49%;
+  width: 40%;
 }
 main ul li:first-of-type {
-  border-right: solid thin black;
+  border-right: solid thin #d4d4d4;
 }
 main ul li a {
   display: inline-block;
@@ -139,12 +142,13 @@ main ul li a {
   padding-bottom: 2rem;
   font-size: 2rem;
   text-transform: uppercase;
-  color: green;
-  font-weight: 600;
+  color: #f8f8f8;
+  font-weight: 200;
   border-radius: 5px;
+  letter-spacing: 2px;
 }
 main ul li a:hover, main ul li a:active {
-  background-color: #e7f2fc;
+  background-color: #3d3e3f;
   transform: scale(1.1);
 }
 
@@ -177,7 +181,7 @@ main ul li a:hover, main ul li a:active {
 }
 .search .search-form #search-consoles {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background: none;
+  background-color: white;
   border: none;
   font-size: 1.2rem;
   font-weight: 400;
@@ -197,6 +201,7 @@ main ul li a:hover, main ul li a:active {
   margin-left: 1rem;
   width: 68%;
   padding-left: 1rem;
+  border-radius: 5px;
 }
 .search .game-lookup-button {
   width: 80%;
@@ -245,7 +250,33 @@ main ul li a:hover, main ul li a:active {
 }
 
 .activeLink {
-  text-decoration: underline blue;
+  text-decoration: underline #68e958;
+}
+
+.game-lookup-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.game-lookup-list li {
+  width: 20%;
+  margin-inline: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(82, 82, 82, 0.918);
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
+}
+.game-lookup-list li h3 {
+  font-weight: 100;
+  font-size: 2.1rem;
+}
+.game-lookup-list li img {
+  aspect-ratio: 2/1;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

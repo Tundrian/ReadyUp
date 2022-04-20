@@ -50,7 +50,7 @@ async function getPlatforms(){
             throw new Error(`HTTP error: ${response.status}`)
         }
         const data = await response.json()
-        await localStorage.setItem("platforms", JSON.stringify(data.results.map(x => 
+        localStorage.setItem("platforms", JSON.stringify(data.results.map(x => 
             { return {
                 'id': x.id, 
                 'name': x.name, 
@@ -69,43 +69,59 @@ async function getPlatforms(){
 }
 
 // Search Games
-function searchForGame(){
-    if(localStorage.getItem('games')){
-        console.log("one")
-        console.log(JSON.parse(localStorage.getItem('games')))
-    }else {
-        const criteria = document.querySelector('.game-lookup-input').value || false
-        const platform = document.querySelector('#search-consoles').value
-        console.log(platform)
-        if(!criteria){
-            console.log('no game selected')
-            return
+async function searchForGame(){
+
+    const criteria = document.querySelector('.game-lookup-input').value || false
+    const platform = document.querySelector('#search-consoles').value
+    if(!criteria){
+        console.log('no game selected')
+        return
+    }
+    try {
+        const response = await fetch(`${url}&search=${criteria}&platforms=${platform}`)
+        if(!response.ok){
+            throw new Error(`HTTP error: ${response.status}`)
         }
-    
-        fetch(`${url}&search=${criteria}&platforms=${platform}`
-        )
-        .then(res => res.json())
-        .then(data => {
-            console.log("two")
-            console.log(data.results)
-            gameResults = data.results.slice()
-            localStorage.setItem('games', JSON.stringify(gameResults))
-            // create html elements to show for each game result
-            /*gameResults.map((x,i) => {
-                const li = document.createElement('li')
-                li.classList.add(`game-result-${i}`)
-                
-                const img = document.createElement('img')
-                img.src = data.results[i].background_image
-    
-                li.appendChild(img)
-                document.querySelector('.game-lookup-list').appendChild(li)
-            })*/
-        })
-        .catch(err => console.log(`Error: ${err}`))
-        
+        const data = await response.json()
+        gameResults = await data.results.slice()
+        localStorage.setItem('games', JSON.stringify(gameResults))
+        populateGameResults()
+    }
+    catch(error) {
+        console.error(`Could not get platforms: ${error}`)
     }
     
+}
+
+function populateGameResults(){
+    gameResults.forEach(game => {
+        // Create elements
+        const li = document.createElement('li')
+        const title = document.createElement('h3')
+        //const description = document.createElement('p')
+        const console = document.createElement('p')
+        const bg = document.createElement('img')
+        //const mpInfo = document.createElement('h4')
+        const addBtn = document.createElement('button')
+
+        title.innerText = game.name
+        console.innerText = document.querySelector('#search-consoles').value
+        bg.src = game.background_image
+        addBtn.innerText = 'Add To Library'
+        addBtn.classList.add('btn')
+        // Append to List
+        li.appendChild(title)
+        //li.appendChild(description)
+        li.appendChild(console)
+        li.appendChild(bg)
+        //li.appendChild(mpInfo)
+        li.appendChild(addBtn)
+
+
+
+        // Append to DOM
+        document.querySelector('.game-lookup-list').appendChild(li)
+    })
 }
 
 function populatePlatformDropdown() {
@@ -148,8 +164,3 @@ function toggleHidden() {
         document.querySelector('.library')]
     sections.forEach(section => section.classList.toggle('hidden'))
 }
-
-// Fetching data from API
-
-// Storing data from API to localStorage
-

@@ -101,8 +101,95 @@ body {
   justify-content: flex-start;
 }
 
+main {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+main h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  text-decoration: underline greenyellow;
+}
+main p {
+  color: gray;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+main ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-top: 5rem;
+}
+main ul li {
+  width: 49%;
+}
+main ul li:first-of-type {
+  border-right: solid thin black;
+}
+main ul li a {
+  display: inline-block;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: green;
+  font-weight: 600;
+  border-radius: 5px;
+}
+main ul li a:hover {
+  background-color: #e7f2fc;
+  transform: scale(1.1);
+}
+
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.search h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.search #search-consoles {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
 .hidden {
   display: none;
+}
+
+.btn {
+  padding-inline: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 200;
+  background-color: #529c26;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.1s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.2);
+  background-color: #63b2dc;
+  cursor: pointer;
+  color: #1001b4;
 }
 
 /*# sourceMappingURL=main.css.map */

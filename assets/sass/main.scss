@@ -106,8 +106,115 @@ body{
 }
 
 // Main Section
+main{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    h1{
+        font-size: 4rem;
+        font-weight: 300;
+        text-decoration: underline greenyellow;
+    }
+
+    p{
+        color: gray;
+        font-size: 1.5rem;
+        font-style:italic;
+    }
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-flow: row wrap;
+
+        margin-top: 5rem;
+
+        li{
+            width: 49%;
+            &:first-of-type{
+                border-right: solid thin black;
+                
+            }
+
+            a{
+                display: inline-block;
+                width: 100%;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                font-size: 2rem;
+                text-transform: uppercase;
+                color: green;
+                font-weight: 600;
+                border-radius: 5px;
+
+                &:hover{
+                    background-color:rgb(231, 242, 252);
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+
+    }
+}
+
+// Game Lookup Section
+// <section class="search">
+//     <h2>Find a game</h2>
+//     <select name="consoles" id="search-consoles">
+//         <option value="XboxSeriesX">Xbox Series X</option>
+//         <option value="Playstation5">Playstation 5</option>
+//     </select>
+//     <input class="game-lookup-input" type="text" placeholder="Search for a game">
+//     <button class="game-lookup-button">Search</button>
+// </section>
+.search{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    h2{
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    #search-consoles{
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+    }
+}
 
 // Utility class
 .hidden {
     display: none;
+}
+
+.btn{
+    padding-inline: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    text-transform:uppercase;
+    font-weight: 200;
+    background-color: rgb(82, 156, 38);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: all .1s ease-in-out;
+    &:hover{
+        transform: scale(1.2);
+        background-color: rgb(99, 178, 220);
+        cursor: pointer;
+        color:rgb(16, 1, 180);
+    }
 }

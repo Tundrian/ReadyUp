@@ -1,5 +1,5 @@
 @use "resets";
-
+@use "utilities";
 
 // Side Navbar
 .nav {
@@ -96,6 +96,17 @@
             position: fixed;
         }
     }
+
+}
+// Background
+.background{
+    position: fixed;
+    background-image: url('../img/background.jpg');
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    background-color: rgba(0, 0, 3, 0.438); /* Tint color */
+    background-blend-mode: multiply;
 
 }
 
@@ -210,9 +221,7 @@ main{
             text-align: center;
             
             width: 25%;
-            &>option{
-    
-            }
+
         }
         .game-lookup-input{
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -234,34 +243,6 @@ main{
     
 }
 
-// Utility classS
-.hidden {
-    display: none;
-}
-
-.btn{
-    padding-inline: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: 2rem;
-    text-transform:uppercase;
-    font-weight: 200;
-    background-color: rgb(82, 156, 38);
-    color: white;
-    border-radius: 8px;
-    border: none;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    transition: all .1s ease-in-out;
-    &:hover{
-        transform: scale(1.2);
-        background-color: rgb(99, 178, 220);
-        cursor: pointer;
-        color:rgb(16, 1, 180);
-    }
-}
 
 .search-results{
     .game-lookup-list {
@@ -269,7 +250,7 @@ main{
         flex-flow: row wrap;
         justify-content: space-around;
         align-items: center;
-
+        margin-inline: 5rem;
         li{
             display: flex;
             flex-flow: column wrap;
@@ -295,7 +276,7 @@ main{
         margin-inline: 1rem;
         margin-bottom: 2rem;
         border-radius: 1rem;
-        background-color: rgba(82, 82, 82, 0.918);
+        background-color: rgb(37, 35, 35);
         padding-inline: 2rem;
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -306,9 +287,10 @@ main{
             font-size: 2.1rem;
         }
         img{
-            aspect-ratio: 2/1;
+            aspect-ratio: 16/9;
             width: 100%;
             
         }
     }
 }
+

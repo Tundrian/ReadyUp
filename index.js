@@ -21,7 +21,7 @@ document.querySelector('.nav-close').addEventListener('click', navClose)
 document.querySelector('.nav-icon').addEventListener('click', navClose)
 let navs = document.querySelectorAll('.nav-link')
 navs.forEach(nav => nav.addEventListener("click", highlightMenuNav))
-
+document.querySelector('.nav-library').addEventListener('click', showLibrary)
 
 // ==========================
 // Initializations
@@ -103,12 +103,14 @@ function populateGameResults(){
         const bg = document.createElement('img')
         //const mpInfo = document.createElement('h4')
         const addBtn = document.createElement('button')
-
+        const gameId = document.createElement('p')
         title.innerText = game.name
         console.innerText = document.querySelector('#search-consoles').value
         bg.src = game.background_image
         addBtn.innerText = 'Add To Library'
-        addBtn.classList.add('btn')
+        addBtn.classList.add('btn', 'addGame')
+        gameId.classList.add('gameId', 'hidden')
+        gameId.innerText = game.id
         // Append to List
         li.appendChild(title)
         //li.appendChild(description)
@@ -116,12 +118,17 @@ function populateGameResults(){
         li.appendChild(bg)
         //li.appendChild(mpInfo)
         li.appendChild(addBtn)
-
-
-
+        li.appendChild(gameId)
         // Append to DOM
         document.querySelector('.game-lookup-list').appendChild(li)
     })
+
+    addButtonEventListeners()
+}
+
+function addButtonEventListeners(){
+    const btns = document.querySelectorAll('.addGame')
+    btns.forEach(x => x.addEventListener('click', addToLibrary))
 }
 
 function populatePlatformDropdown() {
@@ -148,13 +155,13 @@ function highlightMenuNav(e){
     navs.forEach(nav => nav.classList.toggle('activeLink'))
     toggleHidden()
 
-    if(e.target.innerText === 'SEARCH'){
+    if(e.target.innerText.toUpperCase() === 'SEARCH'){
         document.querySelector('.search').classList.toggle('hidden')
-        //document.querySelector('.search-results').classList.toggle('hidden')
-    } else if(e.target.innerText === 'MY LIBRARY'){
+        document.querySelector('.search-results').classList.toggle('hidden')
+    } else if(e.target.innerText.toUpperCase() === 'MY LIBRARY'){
         document.querySelector('.library').classList.toggle('hidden')
     }
-    
+
 }
 
 function toggleHidden() {
@@ -162,5 +169,43 @@ function toggleHidden() {
         document.querySelector('.search'),
         document.querySelector('.search-results'),
         document.querySelector('.library')]
-    sections.forEach(section => section.classList.toggle('hidden'))
+    sections.forEach(section => section.classList.add('hidden'))
+}
+
+function addToLibrary(e){
+    let info = e.target.parentElement.children
+    let gameObject = {}
+    gameObject['name'] = info[0].innerText
+    gameObject['id'] = info[4].innerText
+    gameObject['image'] = info[2].src
+    gameObject['platform'] = document.querySelector('#search-consoles').value
+    console.log(JSON.parse(localStorage.getItem('myGames')))
+    let result = JSON.parse(localStorage.getItem('myGames') || '[]')
+    result.push(gameObject)
+    localStorage.setItem('myGames', JSON.stringify(result))
+}
+
+
+function showLibrary(){
+    const myGames = JSON.parse(localStorage.getItem('myGames') || [])
+    const parent = document.querySelector('.library-gameList')
+    const platforms = JSON.parse(localStorage.getItem('platforms'))
+    myGames.forEach(x => {
+        const li = document.createElement('li')
+        const title = document.createElement('h3')
+        const console = document.createElement('p')
+        const img = document.createElement('img')
+
+        li.classList.add('game-card')
+        title.innerText = x.name
+        console.innerText = platforms.filter(y => y.id === x.id).name
+        img.src = x.image
+
+        li.appendChild(title)
+        li.appendChild(console)
+        li.appendChild(img)
+
+        parent.appendChild(li)
+
+    })
 }

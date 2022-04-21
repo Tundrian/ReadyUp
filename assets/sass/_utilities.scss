@@ -1,0 +1,29 @@
+// Utility classS
+.hidden {
+    display: none;
+}
+
+.btn{
+    padding-inline: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    text-transform:uppercase;
+    font-weight: 200;
+    background-color: rgb(82, 156, 38);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: all .1s ease-in-out;
+
+    &:hover{
+        transform: scale(1.2);
+        background-color: rgb(99, 178, 220);
+        cursor: pointer;
+        color:rgb(16, 1, 180);
+    }
+}

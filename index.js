@@ -94,6 +94,10 @@ async function searchForGame(){
 }
 
 function populateGameResults(){
+    let parent = document.querySelector('.game-lookup-list')
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
     gameResults.forEach(game => {
         // Create elements
         const li = document.createElement('li')
@@ -104,6 +108,7 @@ function populateGameResults(){
         //const mpInfo = document.createElement('h4')
         const addBtn = document.createElement('button')
         const gameId = document.createElement('p')
+
         title.innerText = game.name
         console.innerText = document.querySelector('#search-consoles').value
         bg.src = game.background_image
@@ -120,7 +125,7 @@ function populateGameResults(){
         li.appendChild(addBtn)
         li.appendChild(gameId)
         // Append to DOM
-        document.querySelector('.game-lookup-list').appendChild(li)
+        parent.appendChild(li)
     })
 
     addButtonEventListeners()
@@ -187,25 +192,44 @@ function addToLibrary(e){
 
 
 function showLibrary(){
+
     const myGames = JSON.parse(localStorage.getItem('myGames') || [])
     const parent = document.querySelector('.library-gameList')
     const platforms = JSON.parse(localStorage.getItem('platforms'))
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
     myGames.forEach(x => {
         const li = document.createElement('li')
         const title = document.createElement('h3')
         const console = document.createElement('p')
         const img = document.createElement('img')
-
+        const btn = document.createElement('button')
+        const gameId = document.createElement('p')
         li.classList.add('game-card')
         title.innerText = x.name
         console.innerText = platforms.filter(y => y.id === x.id).name
         img.src = x.image
-
+        btn.classList.add('btn', 'removeGame')
+        btn.innerText = 'REMOVE'
+        gameId.classList.add('hidden')
+        gameId.innerText = x.id
         li.appendChild(title)
         li.appendChild(console)
         li.appendChild(img)
+        li.appendChild(btn)
+        li.appendChild(gameId)
 
         parent.appendChild(li)
 
     })
+
+    let removeButtons = document.querySelectorAll('.removeGame')
+    removeButtons.forEach(x => x.addEventListener('click', removeGame))
+}
+
+function removeGame(e){
+    let games = JSON.parse(localStorage.getItem('myGames'))
+    localStorage.setItem('myGames', JSON.stringify(games.filter(x => x.id !== e.target.parentElement.children[4].innerText)))
+    showLibrary()
 }

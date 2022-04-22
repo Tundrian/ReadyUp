@@ -294,3 +294,48 @@ main{
     }
 }
 
+.hidden {
+    display: none;
+}
+
+.library{
+    text-align: center;
+    h2{
+        margin-bottom: 5rem;
+        font-size: 4rem;
+    }
+}
+
+.library-gameList{
+
+    @extend .game-lookup-list;
+    li{
+        width: 20%;
+        margin-inline: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        background-color: rgb(37, 35, 35);
+        padding-inline: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
+
+        h3{
+            font-weight: 100;
+            font-size: 2.1rem;
+        }
+        img{
+            aspect-ratio: 16/9;
+            width: 100%;
+            
+        }
+
+        .btn{
+            background-color: red;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}

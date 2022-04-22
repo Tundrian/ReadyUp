@@ -22,10 +22,6 @@ a {
   color: black;
 }
 
-.hidden {
-  display: none;
-}
-
 .btn {
   padding-inline: 2rem;
   padding-top: 1rem;
@@ -247,14 +243,14 @@ main ul li a:hover, main ul li a:active {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.search-results .game-lookup-list {
+.search-results .game-lookup-list, .search-results .library-gameList {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   margin-inline: 5rem;
 }
-.search-results .game-lookup-list li {
+.search-results .game-lookup-list li, .search-results .library-gameList li {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -265,13 +261,13 @@ main ul li a:hover, main ul li a:active {
   text-decoration: underline #68e958;
 }
 
-.game-lookup-list {
+.game-lookup-list, .library-gameList {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
 }
-.game-lookup-list li {
+.game-lookup-list li, .library-gameList li {
   width: 20%;
   margin-inline: 1rem;
   margin-bottom: 2rem;
@@ -282,13 +278,51 @@ main ul li a:hover, main ul li a:active {
   padding-bottom: 2rem;
   box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
 }
-.game-lookup-list li h3 {
+.game-lookup-list li h3, .library-gameList li h3 {
   font-weight: 100;
   font-size: 2.1rem;
 }
-.game-lookup-list li img {
+.game-lookup-list li img, .library-gameList li img {
   aspect-ratio: 16/9;
   width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.library {
+  text-align: center;
+}
+.library h2 {
+  margin-bottom: 5rem;
+  font-size: 4rem;
+}
+
+.library-gameList li {
+  width: 20%;
+  margin-inline: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  background-color: #252323;
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
+}
+.library-gameList li h3 {
+  font-weight: 100;
+  font-size: 2.1rem;
+}
+.library-gameList li img {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+.library-gameList li .btn {
+  background-color: red;
+}
+.library-gameList li .btn:hover {
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

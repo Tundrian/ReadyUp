@@ -34,6 +34,9 @@ if(localStorage.getItem('platforms')){
     getPlatforms()
 }
 
+// Temp initialization of game library for testing
+showLibrary()
+
 // ==========================
 // Functions
 // ==========================

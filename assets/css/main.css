@@ -48,27 +48,28 @@ a {
 
 .nav {
   height: 100vh;
-  width: fit-content;
-  background-color: rgba(107, 121, 151, 0.993);
-  color: #e7f2fc;
+  width: 33%;
+  background-color: #281414;
+  color: white;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
   position: fixed;
   align-self: flex-start;
+  transition: 2s;
 }
 .nav .nav-header {
+  width: 100%;
   padding-left: 1rem;
-  padding-right: 1rem;
   padding-top: 3rem;
-  padding-bottom: 4rem;
-  border-bottom: solid thin black;
+  padding-bottom: 1rem;
+  border-bottom: solid thin white;
 }
 .nav .nav-header h2 {
   font-size: 2rem;
   font-weight: 300;
-  color: #ecfc13;
+  color: white;
 }
 .nav .nav-items {
   width: 100%;
@@ -289,6 +290,7 @@ main ul li a:hover, main ul li a:active {
 
 .hidden {
   display: none;
+  transition: all 3s ease;
 }
 
 .library {

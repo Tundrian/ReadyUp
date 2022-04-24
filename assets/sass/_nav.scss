@@ -1,0 +1,99 @@
+//@import 'sass:math';
+.nav {
+    // Sizing
+    height: 100vh;
+    width: 33%;
+
+    // Color
+    background-color: rgb(40, 20, 20);
+    color: rgb(255, 255, 255);
+
+    // Display
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    // Positioning
+    position: fixed;
+    align-self: flex-start;
+    
+    // Animation
+    transition: 2s;
+    .nav-header {
+
+        width : 100%;
+        // Spacing
+        padding-left: 1rem;
+        //padding-right: 1rem;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+        //margin-bottom: 2rem;
+        border-bottom: solid thin rgb(255, 255, 255);
+       
+        h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+        }
+    }
+
+    .nav-items {
+        
+        width: 100%;
+
+        li {
+            width: 100%;
+            font-size: 2rem;
+            border-bottom: solid thin black;
+
+            a {
+                width: 100%;
+                padding-bottom: 2rem;
+                padding-top: 2rem;
+                display: inline-block;
+                text-indent: 1rem;
+                color: white;
+
+                &:hover {
+                    background-color: lighten(rgba(107, 121, 151, 0.993), 10%);
+                    cursor: pointer;
+                    color: rgb(45, 32, 177);
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .nav-close {
+        align-self: flex-end;
+        padding-right: 2rem;
+        padding-top: 1rem;
+        font-size: 3rem;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            color: rgb(113, 8, 8);
+            transform: scale(1.5);
+        }
+    }
+}
+
+.nav-icon {
+    position: fixed;
+    align-self: flex-start;
+    left: 2rem;
+    top: 2rem;
+    i {
+        font-size: 2rem;
+
+        &:hover {
+            color: green;
+            transform: scale(1.5);
+            cursor: pointer;
+            position: fixed;
+        }
+    }
+
+}

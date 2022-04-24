@@ -1,103 +1,8 @@
 @use "resets";
 @use "utilities";
-
+@use "nav";
 // Side Navbar
-.nav {
-    // Sizing
-    height: 100vh;
-    width: fit-content;
 
-    // Color
-    background-color: rgba(107, 121, 151, 0.993);
-    color: rgb(231, 242, 252);
-
-    // Display
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    // Positioning
-    position: fixed;
-    align-self: flex-start;
-    .nav-header {
-
-        // Spacing
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 3rem;
-        padding-bottom: 4rem;
-        //margin-bottom: 2rem;
-        border-bottom: solid thin black;
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            color: rgb(236, 252, 19);
-        }
-
-
-    }
-
-    .nav-items {
-
-        width: 100%;
-
-        li {
-            width: 100%;
-            font-size: 2rem;
-            border-bottom: solid thin black;
-
-            a {
-                width: 100%;
-                padding-bottom: 2rem;
-                padding-top: 2rem;
-                display: inline-block;
-                text-indent: 1rem;
-                color: white;
-
-                &:hover {
-                    background-color: lighten(rgba(107, 121, 151, 0.993), 10%);
-                    cursor: pointer;
-                    color: rgb(45, 32, 177);
-                    margin-left: 0;
-                }
-            }
-        }
-    }
-
-    .nav-close {
-        align-self: flex-end;
-        padding-right: 2rem;
-        padding-top: 1rem;
-        font-size: 3rem;
-        transition: all .2s ease-in-out;
-
-        &:hover {
-            cursor: pointer;
-            color: rgb(113, 8, 8);
-            transform: scale(1.5);
-        }
-    }
-}
-
-.nav-icon {
-    position: fixed;
-    align-self: flex-start;
-    left: 2rem;
-    top: 2rem;
-    i {
-        font-size: 2rem;
-
-        &:hover {
-            color: green;
-            transform: scale(1.5);
-            cursor: pointer;
-            position: fixed;
-        }
-    }
-
-}
 // Background
 .background{
     position: fixed;
@@ -296,6 +201,7 @@ main{
 
 .hidden {
     display: none;
+    transition: all 3s ease;
 }
 
 .library{

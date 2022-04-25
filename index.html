@@ -44,7 +44,7 @@
     <section class="search hidden">
         <h2>Find a game</h2>
         <div class="search-form">
-            <select required name="consoles" id="search-consoles">
+            <select required name="consoles" class='search-consoles'  id="search-consoles">
                 <option value="" disabled hidden selected>Console</option>
             </select>
             <input class="game-lookup-input" type="text" placeholder="Search for a game">
@@ -62,7 +62,11 @@
 
     <!-- My Game Library -->
     <section class="library">
-        <h2>Show my Game Library</h2>
+        <h2>Game Library</h2>
+        <select required name="consoles" class='library-consoles search-consoles'>
+            <option value="" disabled hidden selected>Console</option>
+        </select>
+        <button class="btn filter-platform">Filter By Platform</button>
         <ul class="library-gameList"></ul>
     </section> 
 

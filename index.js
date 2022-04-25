@@ -23,6 +23,9 @@ let navs = document.querySelectorAll('.nav-link')
 navs.forEach(nav => nav.addEventListener("click", highlightMenuNav))
 document.querySelector('.nav-library').addEventListener('click', showLibrary)
 
+// Game Library
+document.querySelector('.filter-platform').addEventListener('click', filterByPlatform)
+
 // ==========================
 // Initializations
 // ==========================
@@ -140,11 +143,15 @@ function addButtonEventListeners(){
 }
 
 function populatePlatformDropdown() {
-    platforms.forEach(platform => {
-        let option = document.createElement('option')
-        option.value = platform.id
-        option.innerText = platform.name
-        document.querySelector('#search-consoles').appendChild(option)
+    const platformButtons = document.querySelectorAll('.search-consoles')
+
+    platformButtons.forEach(button => {
+        platforms.forEach(platform => {
+            let option = document.createElement('option')
+            option.value = platform.id
+            option.innerText = platform.name
+            button.appendChild(option)
+    })
     })
 }
 
@@ -169,6 +176,8 @@ function highlightMenuNav(e){
     } else if(e.target.innerText.toUpperCase() === 'MY LIBRARY'){
         document.querySelector('.library').classList.toggle('hidden')
     }
+
+    
 
 }
 
@@ -196,7 +205,7 @@ function addToLibrary(e){
 
 function showLibrary(){
 
-    const myGames = JSON.parse(localStorage.getItem('myGames') || [])
+    const myGames = JSON.parse(localStorage.getItem('myGames') || []).sort((a,b) => a.name - b.name)
     const parent = document.querySelector('.library-gameList')
     const platforms = JSON.parse(localStorage.getItem('platforms'))
     while(parent.firstChild){
@@ -205,20 +214,20 @@ function showLibrary(){
     myGames.forEach(x => {
         const li = document.createElement('li')
         const title = document.createElement('h3')
-        const console = document.createElement('p')
+        const platform = document.createElement('p')
         const img = document.createElement('img')
         const btn = document.createElement('button')
         const gameId = document.createElement('p')
         li.classList.add('game-card')
         title.innerText = x.name
-        console.innerText = platforms.filter(y => y.id === x.id).name
+        platform.innerText = platforms.filter(y => y.id == x.platform)[0].name
         img.src = x.image
         btn.classList.add('btn', 'removeGame')
         btn.innerText = 'REMOVE'
         gameId.classList.add('hidden')
         gameId.innerText = x.id
         li.appendChild(title)
-        li.appendChild(console)
+        li.appendChild(platform)
         li.appendChild(img)
         li.appendChild(btn)
         li.appendChild(gameId)
@@ -235,4 +244,18 @@ function removeGame(e){
     let games = JSON.parse(localStorage.getItem('myGames'))
     localStorage.setItem('myGames', JSON.stringify(games.filter(x => x.id !== e.target.parentElement.children[4].innerText)))
     showLibrary()
+}
+
+function filterByPlatform(){
+    const myGames = JSON.parse(localStorage.getItem('myGames') || []).sort((a,b) => a.name - b.name)
+    //let platformSelected =
+    let cards = document.querySelectorAll('.game-card')
+    cards.forEach(card => {
+        //console.log(card)
+        console.log(card.children[1].innerText, document.querySelector('.library-consoles'))
+        if(card.children[1].innerText !== document.querySelector('.library-consoles').value){
+            card.classList.add('hidden')
+        }
+        
+    })
 }

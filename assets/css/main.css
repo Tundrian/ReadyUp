@@ -150,19 +150,6 @@ a {
   margin-bottom: 2rem;
   width: 90%;
 }
-.search .search-form #search-consoles {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: white;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: 400;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
-  padding-inline: 1rem;
-  border-radius: 5px;
-  text-align: center;
-  width: 25%;
-}
 .search .search-form .game-lookup-input {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 1.2rem;
@@ -177,6 +164,20 @@ a {
 .search .game-lookup-button {
   width: 80%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.search-consoles {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-inline: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  width: 25%;
 }
 
 .search-results .game-lookup-list {

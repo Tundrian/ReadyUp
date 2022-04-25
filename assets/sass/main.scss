@@ -1,6 +1,8 @@
 @use "resets";
 @use "utilities";
 @use "nav";
+@use 'search';
+@use 'library';
 // Side Navbar
 
 // Background
@@ -81,122 +83,8 @@ main{
     }
 }
 
-// Game Lookup Section
-.search{
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5rem;
-
-    h2{
-        width: 100%;
-        text-align: center;
-        font-size: 3rem;
-        margin-bottom: 2rem;
-        
-    }
-
-    .search-label{
-        text-transform: uppercase;
-        font-weight: 600;
-        width: 100%;
-        margin-inline: 2rem auto;
-    }
-    .search-form{
-        
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-flow: row wrap;
-        margin-bottom: 2rem;
-        width: 90%;
-
-        #search-consoles{
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            background-color: white;
-            border: none;
-            font-size: 1.2rem;
-            font-weight: 400;
-            
-            padding-bottom: 1rem;
-            padding-top: 1rem;
-            padding-inline: 1rem;
-            border-radius: 5px;
-            text-align: center;
-            
-            width: 25%;
-
-        }
-        .game-lookup-input{
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            font-size: 1.2rem;
-            padding: 1rem 0;
-            border: none;
-            border-bottom: solid thin gray;
-            margin-left: 1rem;
-            width: 68%;
-            padding-left: 1rem;
-            border-radius: 5px;
-        }
-    }
-
-    .game-lookup-button {
-        width: 80%;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-    
-}
-
-
-.search-results{
-    .game-lookup-list {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: center;
-        margin-inline: 5rem;
-        li{
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-}
-
 .activeLink {
     text-decoration: underline rgb(104, 233, 88);
-}
-
-// Game Results
-.game-lookup-list{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    
-    li{
-        width: 20%;
-        margin-inline: 1rem;
-        margin-bottom: 2rem;
-        border-radius: 1rem;
-        background-color: rgb(37, 35, 35);
-        padding-inline: 2rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
-
-        h3{
-            font-weight: 100;
-            font-size: 2.1rem;
-        }
-        img{
-            aspect-ratio: 16/9;
-            width: 100%;
-            
-        }
-    }
 }
 
 .hidden {
@@ -204,44 +92,3 @@ main{
     transition: all 3s ease;
 }
 
-.library{
-    text-align: center;
-    h2{
-        margin-bottom: 5rem;
-        font-size: 4rem;
-    }
-}
-
-.library-gameList{
-
-    @extend .game-lookup-list;
-    li{
-        width: 20%;
-        margin-inline: 1rem;
-        margin-bottom: 2rem;
-        border-radius: 1rem;
-        background-color: rgb(37, 35, 35);
-        padding-inline: 2rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
-
-        h3{
-            font-weight: 100;
-            font-size: 2.1rem;
-        }
-        img{
-            aspect-ratio: 16/9;
-            width: 100%;
-            
-        }
-
-        .btn{
-            background-color: red;
-
-            &:hover {
-                color: white;
-            }
-        }
-    }
-}

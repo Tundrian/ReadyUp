@@ -6,7 +6,8 @@
 let gameResults = []
 
 // Universal search variables
-const apiKey = '32f1048b83b24a148bc856092d67acae'
+//const apiKey = '32f1048b83b24a148bc856092d67acae'
+const apiKey = config.RAWGAPIKEY
 const url = `https://api.rawg.io/api/games?key=${apiKey}`
 
 // ==========================

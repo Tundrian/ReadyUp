@@ -339,7 +339,7 @@ function toggleEdit(e){
         btn.style.backgroundColor = 'red'
     } else {
         btn.innerText = 'Edit'
-        btn.style.backgroundColor = 'rgb(82, 156, 38)'
+        btn.style.backgroundColor = 'rgb(64, 121, 32)'
     }
 
     const removeButtons = document.querySelectorAll('.removeGame')

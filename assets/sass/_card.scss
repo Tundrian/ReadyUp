@@ -3,12 +3,12 @@
     justify-content: flex-start;
     flex-flow: row wrap;
     align-items: center;
-    
+    max-width: 300px;
     .card-cover{
         border-radius: 5px;
         height: 300px;
         border: thin rgb(63, 63, 63) solid;
-        min-width: 300px;
+        
        
         .card-header{
             padding-inline: 20px;

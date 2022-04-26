@@ -32,8 +32,10 @@
 
     <!-- Header Area -->
     <main>
-        <h1>Ready Up</h1>
-        <p>A place to see your personal game library</p>
+        <div>
+            <h1>Ready Up</h1>
+            <p>A place to see your personal game library</p>
+        </div>
         <ul>
             <li><a href="#" class="nav-link">Search</a></li>
             <li><a href="#" class="activeLink nav-link nav-library">My Library</a></li>
@@ -62,11 +64,13 @@
 
     <!-- My Game Library -->
     <section class="library">
-        <h2>Game Library</h2>
+        
+        
         <select required name="consoles" class='library-consoles search-consoles'>
             <option value="" disabled hidden selected>Console</option>
         </select>
         <button class="btn filter-platform">Filter By Platform</button>
+        <button class="library-edit btn">Edit</button>
         <ul class="library-gameList"></ul>
     </section> 
 

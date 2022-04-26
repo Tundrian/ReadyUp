@@ -22,6 +22,26 @@ a {
   color: black;
 }
 
+.gameCoverColor-pc {
+  background-color: #171a21;
+}
+
+.gameCoverColor-xbox {
+  background-color: rgba(16, 124, 16, 0.5);
+}
+
+.gameCoverColor-playstation {
+  background-color: rgba(0, 112, 209, 0.5);
+}
+
+.gameCoverColor-nintendo {
+  background-color: rgba(232, 0, 19, 0.5);
+}
+
+.gameCoverColor-default {
+  background-color: rgba(158, 104, 3, 0.5);
+}
+
 .btn {
   padding-inline: 2rem;
   padding-top: 1rem;
@@ -40,10 +60,43 @@ a {
   transition: all 0.1s ease-in-out;
 }
 .btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
   background-color: #63b2dc;
   cursor: pointer;
   color: #1001b4;
+}
+
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.card-container .card-cover {
+  border-radius: 5px;
+  height: 300px;
+  border: thin #3f3f3f solid;
+  min-width: 300px;
+}
+.card-container .card-cover .card-header {
+  padding-inline: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: thin black solid;
+  height: 40px;
+}
+.card-container .card-cover .card-body .card-image {
+  height: 200px;
+}
+.card-container .card-cover .card-body .removeGame {
+  width: 100%;
+  margin: 0;
+  background-color: red;
+}
+.card-container .card-cover .card-body .removeGame:hover {
+  transform: scale(1);
+  background-color: #ff3333;
+  color: #8f0404;
 }
 
 .nav {
@@ -180,14 +233,14 @@ a {
   width: 25%;
 }
 
-.search-results .game-lookup-list {
+.search-results .game-lookup-list, .search-results .library-gameList {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   margin-inline: 5rem;
 }
-.search-results .game-lookup-list li {
+.search-results .game-lookup-list li, .search-results .library-gameList li {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -205,7 +258,6 @@ a {
   margin-inline: 1rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
-  background-color: #252323;
   padding-inline: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -222,7 +274,6 @@ a {
 
 .library {
   text-align: center;
-  border: red solid thin;
   background-color: rgba(0, 0, 0, 0.904);
   margin-inline: 2.5%;
 }
@@ -234,37 +285,19 @@ a {
 
 .library-gameList {
   text-align: left;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
-.library-gameList li {
-  width: 20%;
-  margin-inline: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 1rem;
-  background-color: black;
-  padding-inline: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border: solid thin #0059ff;
-  box-shadow: rgba(0, 0, 0, 0.192) 0px 3px 8px;
-}
-.library-gameList li h3 {
-  font-weight: 100;
-  font-size: 2.1rem;
-}
-.library-gameList li img {
-  aspect-ratio: 16/9;
-  width: 100%;
-}
-.library-gameList li .btn {
-  background-color: red;
-}
-.library-gameList li .btn:hover {
-  color: white;
+
+.hidden {
+  display: none;
+  transition: all 3s ease;
 }
 
 .background {
   position: fixed;
-  background-image: url("../img/background.jpg");
   height: 100vh;
   width: 100vw;
   z-index: -1;
@@ -284,11 +317,20 @@ body {
 
 main {
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 5rem;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 100%;
+  background-color: black;
+}
+main div {
+  width: 100%;
 }
 main h1 {
-  font-size: 4rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
   font-weight: 300;
   text-decoration: underline greenyellow;
 }
@@ -302,21 +344,21 @@ main ul {
   justify-content: space-around;
   align-items: center;
   flex-flow: row wrap;
-  width: 100%;
-  margin-top: 5rem;
+  margin-top: 2rem;
+  width: fit-content;
+  padding-bottom: 1rem;
 }
 main ul li {
-  width: 40%;
-}
-main ul li:first-of-type {
-  border-right: solid thin #d4d4d4;
+  width: fit-content;
+  padding-inline: 2rem;
 }
 main ul li a {
   display: inline-block;
   width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 2rem;
+  margin-inline: 2rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
   color: #f8f8f8;
   font-weight: 200;

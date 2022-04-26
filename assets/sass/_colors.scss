@@ -1,0 +1,5 @@
+@each $key, $val in $gameCoverColors {
+    .gameCoverColor-#{$key} {
+        background-color: $val
+    }
+}

@@ -1,0 +1,50 @@
+.card-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: center;
+    
+    .card-cover{
+        border-radius: 5px;
+        height: 300px;
+        border: thin rgb(63, 63, 63) solid;
+        min-width: 300px;
+       
+        .card-header{
+            padding-inline: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-bottom: thin black solid;
+            height: 40px;
+            
+            .card-platform{
+    
+            }
+        
+            .card-title{
+    
+            }
+        }
+    
+        .card-body{
+           
+            .card-image{
+                height: 200px;
+            }
+
+            .removeGame{
+                width: 100%;
+                margin: 0;
+                background-color: rgb(255, 0, 0);
+                &:hover{
+                    transform: scale(1);
+                    background-color: lighten(rgb(255, 0, 0), 10%);
+                    color: rgb(143, 4, 4);
+                }
+                
+            }
+        }
+    }
+    
+    
+}

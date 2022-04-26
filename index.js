@@ -4,7 +4,6 @@
 
 // save game results to temporary array
 let gameResults = []
-
 // Universal search variables
 //const apiKey = '32f1048b83b24a148bc856092d67acae'
 const apiKey = config.RAWGAPIKEY
@@ -26,7 +25,7 @@ document.querySelector('.nav-library').addEventListener('click', showLibrary)
 
 // Game Library
 document.querySelector('.filter-platform').addEventListener('click', filterByPlatform)
-
+document.querySelector('.library-edit').addEventListener('click', toggleEdit)
 // ==========================
 // Initializations
 // ==========================
@@ -203,7 +202,6 @@ function addToLibrary(e){
     localStorage.setItem('myGames', JSON.stringify(result))
 }
 
-
 function showLibrary(){
 
     const myGames = JSON.parse(localStorage.getItem('myGames') || []).sort((a,b) => a.name - b.name)
@@ -219,44 +217,132 @@ function showLibrary(){
         const img = document.createElement('img')
         const btn = document.createElement('button')
         const gameId = document.createElement('p')
-        li.classList.add('game-card')
+        const cover = document.createElement('div')
+        const header = document.createElement('div')
+        const body = document.createElement('div')
+
+        // li.classList.add('game-card')
+        li.classList.add('card-container', 'library-gameCard')
+
+        header.classList.add('card-header')
+        title.classList.add('card-title')
+        platform.classList.add('card-platform')
+
+        body.classList.add('card-body')
+        img.classList.add('card-image')
+        btn.classList.add('btn', 'removeGame', 'hidden')
+        gameId.classList.add('hidden')
+        cover.classList.add('card-cover', getManufacturer(platforms.filter(y => y.id == x.platform)[0].slug))
+
         title.innerText = x.name
         platform.innerText = platforms.filter(y => y.id == x.platform)[0].name
         img.src = x.image
-        btn.classList.add('btn', 'removeGame')
         btn.innerText = 'REMOVE'
-        gameId.classList.add('hidden')
         gameId.innerText = x.id
-        li.appendChild(title)
-        li.appendChild(platform)
-        li.appendChild(img)
-        li.appendChild(btn)
-        li.appendChild(gameId)
+        
+        header.appendChild(platform)
+        header.appendChild(title)
+        body.appendChild(img)
+        body.appendChild(btn)
+        cover.appendChild(header)
+        cover.appendChild(body)
 
+        li.appendChild(gameId)
+        li.appendChild(cover)
+       
         parent.appendChild(li)
 
     })
 
-    let removeButtons = document.querySelectorAll('.removeGame')
+    const removeButtons = document.querySelectorAll('.removeGame')
     removeButtons.forEach(x => x.addEventListener('click', removeGame))
+    
 }
 
 function removeGame(e){
     let games = JSON.parse(localStorage.getItem('myGames'))
-    localStorage.setItem('myGames', JSON.stringify(games.filter(x => x.id !== e.target.parentElement.children[4].innerText)))
+    //console.log(e.target.parentElement.parentElement.parentElement.firstChild.innerText)
+    localStorage.setItem('myGames', JSON.stringify(games.filter(x => x.id !== e.target.parentElement.parentElement.parentElement.firstChild.innerText)))
     showLibrary()
 }
 
 function filterByPlatform(){
-    const myGames = JSON.parse(localStorage.getItem('myGames') || []).sort((a,b) => a.name - b.name)
-    //let platformSelected =
-    let cards = document.querySelectorAll('.game-card')
-    cards.forEach(card => {
-        //console.log(card)
-        console.log(card.children[1].innerText, document.querySelector('.library-consoles'))
-        if(card.children[1].innerText !== document.querySelector('.library-consoles').value){
-            card.classList.add('hidden')
-        }
+    //const myGames = JSON.parse(localStorage.getItem('myGames') || []).sort((a,b) => a.name - b.name)
+    showLibrary()
+    let cards = document.querySelectorAll('.library-gameCard')
+    //console.log(document.querySelector('.library-consoles').value)
+    //platforms.forEach(x => console.log(x.name))
+    let plat = platforms.filter(x => x.id == document.querySelector('.library-consoles').value)[0].name
+    cards.forEach(x=> {
+        //console.log(x.children[1].firstChild.firstChild.innerText, plat)
+        console.log(x)
+        x.children[1].firstChild.firstChild.innerText === plat ? x.classList.remove('hidden') : x.classList.add('hidden')
         
     })
+    
+
+
+}
+
+function getManufacturer(plat){
+    const pcGames = [
+        'pc'
+    ]
+    const nintendoGames = [
+        'nintendo-switch',
+        'nintendo-3ds',
+        'nintendo-ds',
+        'nintendo-dsi',
+        'wii-u',
+        'wii',
+        'gamecube',
+        'nintendo-64',
+        'game-boy-advance',
+        'game-boy-color',
+        'game-boy',
+        'snes',
+        'nes'
+    ]
+    const xboxGames = [
+        'xbox-one',
+        'xbox-series-x',
+        'xbox360',
+        'xbox-old' 
+    ]
+    const playstationGames = [
+        'playstation5',
+        'playstation4',
+        'playstation3',
+        'playstation2',
+        'playstation1',
+        'ps-vita',
+        'psp'
+    ]
+
+    if(pcGames.includes(plat)){
+        return 'gameCoverColor-pc'
+    } else if(nintendoGames.includes(plat)){
+        return 'gameCoverColor-nintendo'
+    }if(xboxGames.includes(plat)){
+        return 'gameCoverColor-xbox'
+    }if(playstationGames.includes(plat)){
+        return 'gameCoverColor-playstation'
+    } else {
+        return 'gameCoverColor-default'
+    }
+}
+
+function toggleEdit(e){
+    const btn = e.target
+    if(btn.innerText === 'EDIT'){
+        btn.innerText = 'Cancel' 
+        btn.style.backgroundColor = 'red'
+    } else {
+        btn.innerText = 'Edit'
+        btn.style.backgroundColor = 'rgb(82, 156, 38)'
+    }
+
+    const removeButtons = document.querySelectorAll('.removeGame')
+    removeButtons.forEach(x => x.classList.toggle('hidden'))
+    
 }

@@ -256,6 +256,9 @@ function showLibrary(){
 
     const removeButtons = document.querySelectorAll('.removeGame')
     removeButtons.forEach(x => x.addEventListener('click', removeGame))
+
+    const gameCards = document.querySelectorAll('.card-image')
+    gameCards.forEach(x => x.addEventListener('click', gameDetails))
     
 }
 
@@ -345,4 +348,55 @@ function toggleEdit(e){
     const removeButtons = document.querySelectorAll('.removeGame')
     removeButtons.forEach(x => x.classList.toggle('hidden'))
     
+}
+
+async function gameDetails(e){
+    const gameSelected = e.target.parentElement.parentElement.parentElement.firstChild.innerText
+
+    //const criteria = document.querySelector('.game-lookup-input').value || false
+    //const platform = document.querySelector('#search-consoles').value
+    try {
+        
+        const response = await fetch(`https://api.rawg.io/api/games/${gameSelected}?key=${apiKey}`)
+        if(!response.ok){
+            throw new Error(`HTTP error: ${response.status}`)
+        }
+        const data = await response.json()
+        console.log(data)
+        /*
+           <section class="details-header">
+            <section class="details-title">
+                <h2 class="details-name"></h2>
+                <p class="details-description"></p>
+                <span class="details-rating"></span>
+                <span class="details-achievementCount"></span>
+                <span class="details-playtime"></span>
+                <span class="details-releaseDate"></span>
+                <ul class="details-genres"></ul>
+            </section>
+        </section>
+        */
+        document.querySelector('.details-name').innerText = data.name
+        document.querySelector('.details-description').innerText = data.description_raw
+        document.querySelector('.details-rating').innerText = data.esrb_rating.name
+        document.querySelector('.details-achievementCount').innerText = data.achievement_count
+        document.querySelector('.details-playtime').innerText = data.playtime
+        document.querySelector('.details-releaseDate').innerText = data.released
+        document.querySelector('.details-image').src = data.background_image
+        const genres = document.querySelector('.details-generes')
+        let dataGenres = data.genres
+        dataGenres.forEach(x => {
+            let genre = document.createElement('li')
+            let span = document.createElement('span')
+            console.log(x)
+            span.innerText = x.name
+            genre.appendChild(span)
+            genres.appendChild(genre)
+        })
+        
+        
+    }
+    catch(error) {
+        console.error(`Error: ${error}`)
+    }    
 }
